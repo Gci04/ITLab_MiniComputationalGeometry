@@ -9,6 +9,7 @@ public:
 	double x;
 	double y;
 	TPoint(double _x=0.0, double y=0.0); //конструктор
+	TPoint (const TPoint &p); //конструктор копирования
 	TPoint operator+ (TPoint &p); //сумма координат точек
 	TPoint operator- (TPoint &p); //разность координат точек
 	double operator[] (int i); //операция индексации: возвращает координату х при [0] и координату y при [1]

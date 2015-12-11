@@ -14,6 +14,28 @@ ConvexHull::~ConvexHull(void)
 	delete[] hull;
 }
 
+ConvexHull::ConvexHull(const ConvexHull &a)  //конструктор копирования
+{
+	k=a.k;
+	hull=new TPoint[k];
+	for (int i=0; i<k; i++)
+		hull[i]=a.hull[i];
+}
+ConvexHull& ConvexHull::operator=(const ConvexHull &a) //присваивание
+{
+	if (this != &a )
+	{
+		if ( k != a.k )
+		{
+			delete [] hull;
+			hull = new TPoint[a.k];
+		}
+		k=a.k;
+		for ( int i=0; i<k; i++)
+			hull[i]=a.hull[i];
+	}
+	return *this;
+}
 int ConvexHull:: FindMaxX() //индекс точки с максимальной Х-координатой
 {
 	int n=0;
@@ -161,8 +183,8 @@ ConvexHull ConvexHull:: CreateNewConvexHull(TPoint p)
 {
 	if (IsPointInHull(p))
 		return (*this);
-	else
-	{/*
+	else 
+	{
 		int l=FindLeftSupportLine(p);
 		int r=FindRightSupportLine(p);
 		int knew; //размер нового массива
@@ -196,10 +218,10 @@ ConvexHull ConvexHull:: CreateNewConvexHull(TPoint p)
 		}
 		delete[] hull;
 		k=knew;
-		new TPoint[k];
+		hull=new TPoint[k];
 		for (int i=0; i<k; i++)
 			hull[i]=b[i];
-		delete[] b;*/
+		delete[] b;
 	}
-	return *this;
+	return (*this);
 }

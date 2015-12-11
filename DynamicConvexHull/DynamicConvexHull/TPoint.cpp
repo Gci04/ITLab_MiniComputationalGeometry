@@ -7,7 +7,11 @@ TPoint:: TPoint(double _x, double _y)                      //конструктор
 	x=_x;
 	y=_y;
 }
-
+TPoint:: TPoint (const TPoint &p)
+{
+	x=p.x;
+	y=p.y;
+}
 TPoint TPoint:: operator+ (TPoint &p)                  //сумма координат точек
 {
 	TPoint q;
