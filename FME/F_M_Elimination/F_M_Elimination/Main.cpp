@@ -14,6 +14,16 @@ private :
 public:
 	inequality_index ()
 	{}
+	inequality_index (const inequality_index &a, const inequality_index &b) {
+		n = a.n;
+		for (int i = 0; i < n; i++){
+			if((b.index [i] == 1)||(a.index[i] == 1)){
+				index [i] = 1;
+			}
+			else 
+				index[i] = 0;
+		}
+	}
 	inequality_index (int total_inq, int pos )
 	{
 		n = total_inq;
@@ -36,11 +46,10 @@ public:
 		}
 		return set1;
 	}
-	int calculate_index_size (inequality_index *a, inequality_index *b){
+	int size (){
 		int total = 0;
-		inequality_index* tepm = a->unite(b, a->n);
-		for(int i =0; i < a->n; i++){
-			if (tepm->index[i] == 1){
+		for(int i =0; i < n; i++){
+			if (index[i] == 1){
 				total++;
 			}
 		}
