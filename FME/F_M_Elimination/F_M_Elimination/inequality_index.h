@@ -15,8 +15,16 @@ public:
 	bool operator != (inequality_index &A);
 	bool is_subset (inequality_index &A);
 };
+
+struct inequality {
+	int* a;
+	int b;
+	inequality_index indes;
+};
+
 struct system {
 	int **A;
 	int *b;
 	inequality_index *q;
+	/// instead have
 };
