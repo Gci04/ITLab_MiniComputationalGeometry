@@ -10,5 +10,6 @@ using namespace std;
 int ** create_a(int col, int rows);
 int* create_b(int rows);
 
-void printResult(int ** a, int * b, int numrows, int numcols);
-void Calculating_new_system(struct system &X,int index_to_eliminate, int &numrows, int numcol, int s); //main function for calculating new systems (newA and newB)
+struct system;
+void printResult(struct system &K , int numrows, int numcols);
+struct system Calculating_new_system(struct system &X,int index_to_eliminate, int numcol, int s); //main function for calculating new systems (newA and newB)

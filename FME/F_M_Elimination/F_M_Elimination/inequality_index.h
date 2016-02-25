@@ -19,12 +19,14 @@ public:
 struct inequality {
 	int* a;
 	int b;
-	inequality_index indes;
+	inequality_index index;
 };
 
 struct system {
-	int **A;
+	/*int **A;
 	int *b;
-	inequality_index *q;
-	/// instead have
+	inequality_index *q;*/
+	// instead have
+	 inequality* inequalities;
+	 int numInequalities;
 };

@@ -45,19 +45,28 @@ int main (int argc, char *argv[]){
 	cout << "Input the number of elements to eliminate !"<<endl;
 	cin>>total_to_eliminate;
 	struct system collection;
+	collection.numInequalities = numRows;
+	collection.inequalities = new inequality[collection.numInequalities];
+	for (int i = 0; i < collection.numInequalities; i++) {
+		collection.inequalities[i].a = A[i];
+		collection.inequalities[i].b = b[i];
+		collection.inequalities[i].index = Q[i];
+	}
+	/*
 	collection.A = A;
 	collection.b = b;
-	collection.q = Q;
+	collection.q = Q;*/
 	long Start = GetTickCount();
 	for(int i = 0; i < total_to_eliminate; i++){
-
-		Calculating_new_system(collection,element_to_eliminate,numRows,numVariables, i);    //all computations here
-		//printResult(A, b, numRows, numVariables);
+		struct system newSystem = Calculating_new_system(collection,element_to_eliminate,numVariables, i);    //all computations here
+		//
+		collection = newSystem;
 		element_to_eliminate ++;
 
 	}
 	long Finish = GetTickCount();
 	cout<< " Time elapsed (m/s) = " <<Finish - Start <<endl;
+	printResult(collection, numRows, numVariables);
 	//Free memory
 	for (int i = 0; i < numRows; i++){
 		delete [] A[i];
