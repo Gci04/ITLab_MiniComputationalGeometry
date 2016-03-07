@@ -61,3 +61,11 @@ bool inequality_index :: is_subset (inequality_index &A){
 	}
 	return test;
 }
+void  ineq_collection :: add_inequality(inequality S){
+	arr_inequality.push_back(S);
+	numInequalities++;
+}
+void  ineq_collection :: remove_inequality(inequality_index R){
+	int temp =0;
+	
+}

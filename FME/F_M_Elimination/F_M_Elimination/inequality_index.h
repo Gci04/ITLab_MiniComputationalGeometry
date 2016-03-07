@@ -17,16 +17,18 @@ public:
 };
 
 struct inequality {
-	int* a;
+	vector <int> a;
 	int b;
 	inequality_index index;
 };
+class ineq_collection {
+public:
+	vector  <inequality> arr_inequality;
+	int numInequalities;
 
-struct system {
-	/*int **A;
-	int *b;
-	inequality_index *q;*/
-	// instead have
-	 inequality* inequalities;
-	 int numInequalities;
+	void add_inequality (inequality S);
+	void remove_inequality(inequality_index R);
+	friend void create_linear_system(ineq_collection &A, int col, int rows);
+	friend void create_system_manualy(ineq_collection &A, int col, int rows);
+	friend void printResult(ineq_collection &K , int numrows, int numcols);
 };
