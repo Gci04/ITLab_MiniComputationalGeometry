@@ -194,3 +194,6 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+FME/F_M_Elimination/F_M_Elimination.sdf
+FME/F_M_Elimination/F_M_Elimination.suo
+FME/F_M_Elimination/ipch/f_m_elimination-6227c60a/f_m_elimination-d0c5ce56.ipch
