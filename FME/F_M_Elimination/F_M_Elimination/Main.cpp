@@ -14,7 +14,7 @@ int main (int argc, char *argv[]){
 
 	if (choice == 1){
 		create_linear_system(entity1,numVariables , numRows); 
-		printResult(entity1,  numRows, numVariables);
+		printResult(entity1);
 	}
 
 	else if (choice == 2){
@@ -38,7 +38,7 @@ int main (int argc, char *argv[]){
 	}
 	long Finish = GetTickCount();
 	cout<< " Time elapsed (m/s) = " <<Finish - Start <<'\n';
-	printResult(entity1, numRows, numVariables);
+	printResult(entity1);
 
 	return 0;
 }
